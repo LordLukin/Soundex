@@ -25,4 +25,4 @@ script:
   - cd build
   - cmake ..
   - make
-  - ./LogicalImages-ut
+  - ./Soundex-ut
