@@ -35,5 +35,7 @@ std::string Soundex::soundex(std::string s)
     {
         tmp.erase(4, tmp.size() - 4);
     }
+    else
+        tmp.append(4 - tmp.size(), '0');
     return tmp;
 }
