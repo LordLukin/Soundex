@@ -28,8 +28,14 @@ TEST_F(SoundexTests, dropExcluded)
     ASSERT_EQ(s.soundex("Aaeiouyhw"),"A");
 }
 
+
 TEST_F(SoundexTests, replaceConsonants)
 {
     ASSERT_EQ(s.soundex("Aum"),"A5");
     ASSERT_EQ(s.soundex("Rod"),"R3");
+}
+
+TEST_F(SoundexTests, replaceConsonants_b_f_p_v)
+{
+    ASSERT_EQ(s.soundex("Aubfpv"),"A1");
 }
