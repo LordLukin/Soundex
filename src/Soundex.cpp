@@ -1,10 +1,10 @@
 #include "Soundex.hpp"
 #include <iostream>
+#include <algorithm>
 
 Soundex::Soundex()
 {
-    for (auto i : {'a','e','i','o','u','y'})
-        vowels[i] = true;
+
 
     for (auto i : {'b','f','p','v'})
         consonants[i] = '1';
@@ -20,37 +20,37 @@ Soundex::Soundex()
     consonants['n'] = '5';
     consonants['r'] = '6';
 }
-std::string Soundex::soundex(std::string s)
+void Soundex::eraseDubles(size_t i, std::string const & s, std::string & tmp)
 {
-    std::string tmp(1,s[0]);
+    if(tmp[tmp.size()-1] == tmp[tmp.size()-2])
+        if(vowels.find(s.at(i-1)) == vowels.end())
+            tmp.erase(tmp.size()-1, 1);
+}
+
+void Soundex::removeFirstDuplicate(std::string const& s, std::string &tmp)
+{
+    auto first_char = std::tolower(s.at(0));
+    if(consonants.find(first_char) != consonants.end())
+        if(tmp.size() > 1 && tmp.at(1) == consonants.at(first_char))
+            tmp.erase(1, 1);
+}
+
+std::string Soundex::soundex(std::string const & s)
+{
+    std::string result(1,s.at(0));
     for(size_t i = 1; i < s.size(); i++)
     {
         if (consonants.find(s.at(i)) != consonants.end())
-            tmp.append(1,(consonants[s.at(i)]));
+            result.append(1,(consonants.at(s.at(i))));
 
-        if(tmp[tmp.size()-1] == tmp[tmp.size()-2])
-            if(vowels.find(s.at(i-1)) == vowels.end())
-                tmp.erase(tmp.size()-1, 1);
-
-
+        eraseDubles(i, s, result);
     }
-    //std::cout << "turrr jestem";
-    auto first_char = std::tolower(s.at(0));
-    if(consonants.find(first_char) != consonants.end())
-    {
+    removeFirstDuplicate(s, result);
 
-        std::cout << "tu jestem";
-        if(tmp.size() > 1 && tmp[1] == consonants[first_char])
-        {
-            std::cout << "Weszlam/wszedlem do ifa";
-            tmp.erase(1, 1);
-        }
-    }
-    if(tmp.size() > 3)
-    {
-        tmp.erase(4, tmp.size() - 4);
-    }
+    if(result.size() > 3)
+        result.erase(4, result.size() - 4);
+
     else
-        tmp.append(4 - tmp.size(), '0');
-    return tmp;
+        result.append(4 - result.size(), '0');
+    return result;
 }
