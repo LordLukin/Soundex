@@ -31,5 +31,9 @@ std::string Soundex::soundex(std::string s)
             tmp.erase(tmp.size()-1, 1);
 
     }
+    if(tmp.size() > 3)
+    {
+        tmp.erase(4, tmp.size() - 4);
+    }
     return tmp;
 }

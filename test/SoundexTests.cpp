@@ -40,7 +40,12 @@ TEST_F(SoundexTests, replaceConsonants_b_f_p_v)
     ASSERT_EQ(s.soundex("Aubfpv"),"A1");
 }
 
-TEST_F(SoundexTests, recplaceConsonants_c_g_j_k_q_s_x_z)
+TEST_F(SoundexTests, replaceConsonants_c_g_j_k_q_s_x_z)
 {
     ASSERT_EQ(s.soundex("Cgjkqsxz"),"C2");
+}
+
+TEST_F(SoundexTests, replaceConsonants_d_t_l_m_n_r)
+{
+    ASSERT_EQ(s.soundex("Dtlmnr"), "D345");
 }
