@@ -39,3 +39,8 @@ TEST_F(SoundexTests, replaceConsonants_b_f_p_v)
 {
     ASSERT_EQ(s.soundex("Aubfpv"),"A1");
 }
+
+TEST_F(SoundexTests, recplaceConsonants_c_g_j_k_q_s_x_z)
+{
+    ASSERT_EQ(s.soundex("Cgjkqsxz"),"C2");
+}
