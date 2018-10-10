@@ -11,11 +11,6 @@ TEST_F(SoundexTests, assertThatSoundexForRoIsR)
     ASSERT_EQ(s.soundex("Ro"),"R");
 }
 
-TEST_F(SoundexTests, assertThatSoundexForRodIsR3)
-{
-    ASSERT_EQ(s.soundex("Rod"),"R3");
-}
-
 TEST_F(SoundexTests, assertThatSoundexForFirstLetterIsThatLetter)
 {
     ASSERT_EQ(s.soundex("J"),"J");
@@ -31,4 +26,10 @@ TEST_F(SoundexTests, verifyNonConsolantsIsRemove)
 TEST_F(SoundexTests, dropExcluded)
 {
     ASSERT_EQ(s.soundex("Aaeiouyhw"),"A");
+}
+
+TEST_F(SoundexTests, replaceConsonants)
+{
+    ASSERT_EQ(s.soundex("Aum"),"A5");
+    ASSERT_EQ(s.soundex("Rod"),"R3");
 }
