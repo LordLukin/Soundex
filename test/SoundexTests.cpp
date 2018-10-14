@@ -86,4 +86,23 @@ TEST_F(SoundexTests, GivenFourDifferentLettersReplaceToDigitsTripledNumber)
     ASSERT_EQ(soundex.removeDoubleDigit("Alel"),"A440");
 }
 
+TEST_F(SoundexTests, AcceptanceTests)
+{
+    ASSERT_EQ(soundex.removeDoubleDigit("Robert"),"R163");
+    ASSERT_EQ(soundex.removeDoubleDigit("Rupert"),"R163");
+
+    ASSERT_EQ(soundex.removeDoubleDigit("Rubin"),"R150");
+
+    ASSERT_EQ(soundex.removeDoubleDigit("Ashcraft"),"A261");
+    ASSERT_EQ(soundex.removeDoubleDigit("Ashcroft"),"A261");
+
+    ASSERT_EQ(soundex.removeDoubleDigit("Tymczak"),"T522");
+    ASSERT_EQ(soundex.removeDoubleDigit("Honeyman"),"H555");
+
+    ASSERT_EQ(soundex.removeDoubleDigit("Pfister"),"P236");
+
+
+
+}
+
 

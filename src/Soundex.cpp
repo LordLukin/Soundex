@@ -1,5 +1,6 @@
 #include "Soundex.hpp"
 #include <map>
+#include <cctype>
 
 std::string Soundex::removeAEIOUYHW(std::string name)
 {
@@ -51,7 +52,7 @@ std::string Soundex::replaceToDigits(std::string name)
     if (name.length() ==1) return name + "000";
     for(auto singleCode: codingKey)
     {
-        for (int i = 1; i < name.length(); i++)
+        for (int i = 0; i < name.length(); i++)
         {
             auto findLetterToReplace = [&name, i](auto letter){ return name[i] == letter;};
             replaceLetterToDigit(name,
@@ -67,7 +68,9 @@ std::string Soundex::replaceToDigits(std::string name)
 }
 std::string Soundex::removeDoubleDigit(std::string name)
 {
-    std::string name_ = replaceToDigits(name);
+    std::string name_ = name;
+    name_[0] = std::tolower(name_[0]);
+    name_ = replaceToDigits(name_);
     auto doubleDigit = std::adjacent_find(name_.begin(), name_.end());
     while(doubleDigit != name_.end())
     {
@@ -85,9 +88,11 @@ std::string Soundex::removeDoubleDigit(std::string name)
             }
         }
     }
+    name_[0] = name[0];
     name_ = removeAEIOUYHW(name_);
     for(int i =name_.length(); i<4;i++)
         name_.push_back('0');
+    name_.erase(4);
     return name_;
 }
 
