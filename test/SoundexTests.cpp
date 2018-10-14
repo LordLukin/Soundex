@@ -40,4 +40,6 @@ TEST_F(SoundexTests, GivenTwoLettersReplaceToDigits)
     ASSERT_EQ(soundex.replaceToDigits("Rb"),"R100");
     ASSERT_EQ(soundex.replaceToDigits("Rf"),"R100");
     ASSERT_EQ(soundex.replaceToDigits("Hc"),"H200");
+
 }
+

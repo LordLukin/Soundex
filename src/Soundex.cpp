@@ -21,23 +21,27 @@ std::string Soundex::removeAEIOUYHW(std::string name)
     return name;
 }
 
+void Soundex::replaceLetterToDigit(std::string& name,
+                                   auto findLetterToReplace,
+                                   std::string letterToDigit,char digit)
+{
+    if(std::any_of(letterToDigit.begin(),letterToDigit.end(),
+                   findLetterToReplace
+                   ))
+    {
+        name[1] = digit;
+    }
+}
+
 std::string Soundex::replaceToDigits(std::string name)
 {
     std::string letterTo_1 = "bfpv";
     std::string letterTo_2 = "cgjkqsxz";
+    auto findLetterToReplace = [&name](auto letter){ return name[1] == letter;};
     if (name.length() ==1) return name + "000";
-    if(std::any_of(letterTo_1.begin(),letterTo_1.end(),
-                   [&name](auto letter){ return name[1] == letter;}
-                   ))
-    {
-        name[1] = '1';
-    }
-    if(std::any_of(letterTo_2.begin(),letterTo_2.end(),
-                   [&name](auto letter){ return name[1] == letter;}
-                   ))
-    {
-        name[1] = '2';
-    }
+    replaceLetterToDigit(name, findLetterToReplace, letterTo_1, '1');
+    replaceLetterToDigit(name, findLetterToReplace, letterTo_2, '2');
+
     return name + "00";
 }
 
