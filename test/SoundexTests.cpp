@@ -8,8 +8,7 @@ struct SoundexTests : public ::testing::Test
     std::string name = "Robrt";
     std::string name2 = "R";
     std::string name3 = "J";
-    std::string name4 = "Rb";
-    std::string name5 ="Rf";
+
 };
 
 TEST_F(SoundexTests, assertThatTrueIsTrue)
@@ -38,7 +37,7 @@ TEST_F(SoundexTests, GivenOneLetterReplaceToDigitsShouldReturnJ000)
 }
 TEST_F(SoundexTests, GivenTwoLettersReplaceToDigits)
 {
-    ASSERT_EQ(soundex.replaceToDigits(name4),"R100");
-    ASSERT_EQ(soundex.replaceToDigits(name5),"R100");
-
+    ASSERT_EQ(soundex.replaceToDigits("Rb"),"R100");
+    ASSERT_EQ(soundex.replaceToDigits("Rf"),"R100");
+    ASSERT_EQ(soundex.replaceToDigits("Hc"),"H200");
 }

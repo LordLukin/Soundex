@@ -21,10 +21,20 @@ std::string Soundex::removeAEIOUYHW(std::string name)
 std::string Soundex::replaceToDigits(std::string name)
 {
     std::string string1 = "bfpv";
+    std::string string2 = "cgjkqsxz";
     if (name.length() ==1) return name + "000";
-    if (name.length()==2)
+    if(std::any_of(string1.begin(),string1.end(),
+                   [&name](auto letter){ return name[1] == letter;}
+                  ))
     {
-        name[1]='1';
+        name[1] = '1';
+    }
+    if(std::any_of(string2.begin(),string2.end(),
+                   [&name](auto letter){ return name[1] == letter;}
+                  ))
+    {
+        name[1] = '2';
     }
     return name + "00";
+
 }
