@@ -1,4 +1,5 @@
 #include "Soundex.hpp"
+#include <map>
 
 std::string Soundex::removeAEIOUYHW(std::string name)
 {
@@ -35,21 +36,21 @@ void Soundex::replaceLetterToDigit(std::string& name,
 
 std::string Soundex::replaceToDigits(std::string name)
 {
-    std::string letterTo_1 = "bfpv";
-    std::string letterTo_2 = "cgjkqsxz";
-    std::string letterTo_3 = "dt";
-    std::string letterTo_4 = "l";
-    std::string letterTo_5 = "mn";
-    std::string letterTo_6 = "r";
+
+    std::map <std::string, char> codingKey = {{"bfpv",'1'},
+                                              {"cgjkqsxz",'2'},
+                                              {"dt",'3'},
+                                              {"l",'4'},
+                                              {"mn",'5'},
+                                              {"r",'6'}
+                                             };
 
     auto findLetterToReplace = [&name](auto letter){ return name[1] == letter;};
     if (name.length() ==1) return name + "000";
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_1, '1');
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_2, '2');
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_3, '3');
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_4, '4');
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_5, '5');
-    replaceLetterToDigit(name, findLetterToReplace, letterTo_6, '6');
+    for(auto singleCode: codingKey)
+    {
+        replaceLetterToDigit(name, findLetterToReplace, singleCode.first,singleCode.second);
+    }
     return name + "00";
 }
 
