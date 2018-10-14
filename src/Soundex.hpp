@@ -14,4 +14,6 @@ public:
     std::string replaceToDigits(std::string name);
     std::string removeDoubleDigit(std::string name);
 
+private:
+    void wAndHAdjacent(std::string& name_);
 };
