@@ -61,9 +61,8 @@ std::string Soundex::replaceToDigits(std::string name)
                                  i);
         }
     }
-    if (name.length() == 2) return name + "00";
-    if (name.length() == 3) return name + "0";
-    if (name.length() >= 4) return name;
-
+    for(int i =name.length(); i<4;i++)
+        name.push_back('0');
+    return name;
 }
 
