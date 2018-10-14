@@ -75,6 +75,17 @@ std::string Soundex::removeDoubleDigit(std::string name)
         if(doubleDigit != name_.end())
             name_.erase(doubleDigit);
     }
+    for(int i=1; i<name_.length()-1;i++)
+    {
+        if(name_[i]=='w' || name_[i]=='h')
+        {
+            if(name_[i-1]==name_[i+1])
+            {
+                name_.erase(i-1,1);
+            }
+        }
+    }
+    name_ = removeAEIOUYHW(name_);
     for(int i =name_.length(); i<4;i++)
         name_.push_back('0');
     return name_;
