@@ -81,3 +81,8 @@ TEST_F(SoundexTests, check_if_given_Bbbmoa_letter_except_B150)
 {
     ASSERT_EQ("B150", s.decode("Bbbmoa"));
 }
+
+TEST_F(SoundexTests, check_if_given_Rupert_letter_except_)
+{
+    ASSERT_EQ("R163", s.decode("Rupert"));
+}

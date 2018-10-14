@@ -22,6 +22,7 @@ private:
         std::make_pair('s','2'),
         std::make_pair('x','2'),
         std::make_pair('z','2'),
+        std::make_pair('t','3'),
         std::make_pair('d','3'),
         std::make_pair('l','4'),
         std::make_pair('m','5'),
