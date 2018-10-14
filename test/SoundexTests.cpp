@@ -59,9 +59,15 @@ TEST_F(SoundexTests, GivenThreeLettersReplaceToDigits)
 }
 TEST_F(SoundexTests, GivenThreeDifferentLettersReplaceToDigits)
 {
-
     ASSERT_EQ(soundex.replaceToDigits("Hrm"),"H650");
-
+    ASSERT_EQ(soundex.replaceToDigits("Hbb"),"H110");
+    ASSERT_EQ(soundex.replaceToDigits("Abc"),"A120");
+}
+TEST_F(SoundexTests, GivenFourDifferentLettersReplaceToDigits)
+{
+    ASSERT_EQ(soundex.replaceToDigits("Hrmb"),"H651");
+    ASSERT_EQ(soundex.replaceToDigits("Hbbd"),"H113");
+    ASSERT_EQ(soundex.replaceToDigits("Abcr"),"A126");
 }
 
 

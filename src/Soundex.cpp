@@ -54,11 +54,16 @@ std::string Soundex::replaceToDigits(std::string name)
         for (int i = 1; i < name.length(); i++)
         {
             auto findLetterToReplace = [&name, i](auto letter){ return name[i] == letter;};
-            replaceLetterToDigit(name, findLetterToReplace, singleCode.first,singleCode.second, i);
+            replaceLetterToDigit(name,
+                                 findLetterToReplace,
+                                 singleCode.first,
+                                 singleCode.second,
+                                 i);
         }
     }
     if (name.length() == 2) return name + "00";
     if (name.length() == 3) return name + "0";
+    if (name.length() >= 4) return name;
 
 }
 
