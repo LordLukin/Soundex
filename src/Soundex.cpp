@@ -20,5 +20,6 @@ std::string Soundex::removeAEIOUYHW(std::string name)
 
 std::string Soundex::replaceToDigits(std::string name)
 {
-    return "R000";
+    if (name.length() == 1) return name + "000";
+
 }
