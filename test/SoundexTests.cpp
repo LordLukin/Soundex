@@ -26,10 +26,10 @@ TEST_F(SoundexTests, check_if_given_2_letters_except_proper_numbers)
     ASSERT_EQ("B200", s.decode("Bc"));
 }
 
-TEST_F(SoundexTests, check_if_given_bcc_letter_except_B220)
+TEST_F(SoundexTests, check_if_given_bcc_letter_except_B200)
 {
     std::string out = s.decode("Bcc");
-    ASSERT_EQ("B220", out);
+    ASSERT_EQ("B200", out);
 }
 
 TEST_F(SoundexTests, check_if_given_bdln_letter_except_B345)
@@ -75,4 +75,9 @@ TEST_F(SoundexTests, check_if_given_boo_letter_except_B000)
 TEST_F(SoundexTests, check_if_given_Bfmoa_letter_except_B150)
 {
     ASSERT_EQ("B150", s.decode("Bfmoa"));
+}
+
+TEST_F(SoundexTests, check_if_given_Bbbmoa_letter_except_B150)
+{
+    ASSERT_EQ("B150", s.decode("Bbbmoa"));
 }
