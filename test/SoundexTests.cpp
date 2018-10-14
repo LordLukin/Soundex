@@ -44,5 +44,24 @@ TEST_F(SoundexTests, GivenTwoLettersReplaceToDigits)
     ASSERT_EQ(soundex.replaceToDigits("Hl"),"H400");
     ASSERT_EQ(soundex.replaceToDigits("Hm"),"H500");
     ASSERT_EQ(soundex.replaceToDigits("Hr"),"H600");
+
 }
+TEST_F(SoundexTests, GivenThreeLettersReplaceToDigits)
+{
+    ASSERT_EQ(soundex.replaceToDigits("Rbb"),"R110");
+    ASSERT_EQ(soundex.replaceToDigits("Rff"),"R110");
+    ASSERT_EQ(soundex.replaceToDigits("Hcc"),"H220");
+    ASSERT_EQ(soundex.replaceToDigits("Hdd"),"H330");
+    ASSERT_EQ(soundex.replaceToDigits("Hll"),"H440");
+    ASSERT_EQ(soundex.replaceToDigits("Hmm"),"H550");
+    ASSERT_EQ(soundex.replaceToDigits("Hrr"),"H660");
+
+}
+TEST_F(SoundexTests, GivenThreeDifferentLettersReplaceToDigits)
+{
+
+    ASSERT_EQ(soundex.replaceToDigits("Hrm"),"H650");
+
+}
+
 

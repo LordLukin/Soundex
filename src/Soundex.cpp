@@ -24,13 +24,15 @@ std::string Soundex::removeAEIOUYHW(std::string name)
 
 void Soundex::replaceLetterToDigit(std::string& name,
                                    auto findLetterToReplace,
-                                   std::string letterToDigit,char digit)
+                                   std::string letterToDigit,
+                                   char digit,
+                                   int i)
 {
     if(std::any_of(letterToDigit.begin(),letterToDigit.end(),
                    findLetterToReplace
                    ))
     {
-        name[1] = digit;
+        name[i] = digit;
     }
 }
 
@@ -45,12 +47,18 @@ std::string Soundex::replaceToDigits(std::string name)
                                               {"r",'6'}
                                              };
 
-    auto findLetterToReplace = [&name](auto letter){ return name[1] == letter;};
+
     if (name.length() ==1) return name + "000";
     for(auto singleCode: codingKey)
     {
-        replaceLetterToDigit(name, findLetterToReplace, singleCode.first,singleCode.second);
+        for (int i = 1; i < name.length(); i++)
+        {
+            auto findLetterToReplace = [&name, i](auto letter){ return name[i] == letter;};
+            replaceLetterToDigit(name, findLetterToReplace, singleCode.first,singleCode.second, i);
+        }
     }
-    return name + "00";
+    if (name.length() == 2) return name + "00";
+    if (name.length() == 3) return name + "0";
+
 }
 
