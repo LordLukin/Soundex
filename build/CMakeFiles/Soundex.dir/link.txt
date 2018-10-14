@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Soundex.dir/src/main.cpp.o  -o Soundex libSoundex-lib.a -lpthread 

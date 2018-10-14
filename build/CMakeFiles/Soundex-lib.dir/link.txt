@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSoundex-lib.a  CMakeFiles/Soundex-lib.dir/src/Soundex.cpp.o
+/usr/bin/ranlib libSoundex-lib.a

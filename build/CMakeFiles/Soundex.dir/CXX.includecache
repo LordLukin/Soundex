@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucky/Pulpit/Soundex/src/Soundex.hpp
+string
+-
+iostream
+-
+map
+-
+
+/home/lucky/Pulpit/Soundex/src/main.cpp
+iostream
+-
+Soundex.hpp
+/home/lucky/Pulpit/Soundex/src/Soundex.hpp
+

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Soundex-ut.dir/test/SoundexTests.cpp.o CMakeFiles/Soundex-ut.dir/test/test_main.cpp.o  -o Soundex-ut lib/libgtest.a libSoundex-lib.a -pthread 
