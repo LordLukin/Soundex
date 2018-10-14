@@ -32,4 +32,47 @@ TEST_F(SoundexTests, check_if_given_bcc_letter_except_B220)
     ASSERT_EQ("B220", out);
 }
 
+TEST_F(SoundexTests, check_if_given_bdln_letter_except_B345)
+{
+    std::string out = s.decode("Bdln");
+    ASSERT_EQ("B345", out);
+}
 
+TEST_F(SoundexTests, check_if_given_ba_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Ba"));
+}
+
+TEST_F(SoundexTests, check_if_given_be_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Be"));
+}
+TEST_F(SoundexTests, check_if_given_bi_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Bi"));
+}
+
+TEST_F(SoundexTests, check_if_given_bo_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Bo"));
+}
+
+TEST_F(SoundexTests, check_if_given_bu_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Bu"));
+}
+
+TEST_F(SoundexTests, check_if_given_bou_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Bou"));
+}
+
+TEST_F(SoundexTests, check_if_given_boo_letter_except_B000)
+{
+    ASSERT_EQ("B000", s.decode("Boo"));
+}
+
+TEST_F(SoundexTests, check_if_given_Bfmoa_letter_except_B150)
+{
+    ASSERT_EQ("B150", s.decode("Bfmoa"));
+}

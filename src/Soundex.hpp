@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <algorithm>
 class Soundex
 {
 public:
@@ -24,6 +25,9 @@ private:
         std::make_pair('d','3'),
         std::make_pair('l','4'),
         std::make_pair('m','5'),
+        std::make_pair('n','5'),
         std::make_pair('r','6'),
     };
+    void mappElement(std::string & in);
+    void eraseCharacters(std::string & in);
 };
