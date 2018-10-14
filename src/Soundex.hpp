@@ -31,5 +31,5 @@ private:
     };
     void mappElement(std::string & in);
     void eraseCharacters(std::string & in);
-    void eraseDuplicate(std::string & in);
+    void eraseDuplicate(std::string & in, std::string cop);
 };

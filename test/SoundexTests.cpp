@@ -82,7 +82,27 @@ TEST_F(SoundexTests, check_if_given_Bbbmoa_letter_except_B150)
     ASSERT_EQ("B150", s.decode("Bbbmoa"));
 }
 
-TEST_F(SoundexTests, check_if_given_Rupert_letter_except_)
+TEST_F(SoundexTests, check_if_given_Rupert_letter_except_R163)
 {
     ASSERT_EQ("R163", s.decode("Rupert"));
+}
+
+TEST_F(SoundexTests, check_if_given_Rubin_letter_except_R150)
+{
+    ASSERT_EQ("R150", s.decode("Rubin"));
+}
+
+TEST_F(SoundexTests, check_if_given_Ashcraft_letter_except_A261)
+{
+    ASSERT_EQ("A261", s.decode("Ashcraft"));
+}
+
+TEST_F(SoundexTests, check_if_given_Ashcroft_letter_except_A226)
+{
+    ASSERT_EQ("A261", s.decode("Ashcroft"));
+}
+
+TEST_F(SoundexTests, check_if_given_Tymczak_letter_except_A226)
+{
+    ASSERT_EQ("T522", s.decode("Tymczak"));
 }

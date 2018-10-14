@@ -1,12 +1,13 @@
 #include "Soundex.hpp"
 
-void Soundex::eraseDuplicate(std::string & in)
+void Soundex::eraseDuplicate(std::string & in, std::string cop)
 {
     // auto it = std::adjacent_find (in.begin(), in.end());
     // in.erase(it, 1);
     for(auto x : in)
     {
         auto it = std::adjacent_find(in.begin(), in.end());
+        auto dist = it - it.start();
         if(it != in.end() && *it != '0')
             in.erase(it);
     }
@@ -24,6 +25,7 @@ void Soundex::mappElement(std::string & in)
     {
         in.append(1, '0');
     }
+    std::cout<<in<<std::endl;
 }
 
 void Soundex::eraseCharacters(std::string& in)
@@ -42,10 +44,11 @@ void Soundex::eraseCharacters(std::string& in)
 }
 
 std::string Soundex::decode(std::string in) {
+    std::string cop = in;
     eraseCharacters(in);
     in[0] = toupper(in[0]);
     mappElement(in);
-    eraseDuplicate(in);
+    eraseDuplicate(in, cop);
 
-    return in;
+    return in.substr(0,4);
 }
