@@ -17,3 +17,8 @@ std::string Soundex::removeAEIOUYHW(std::string name)
                ,name.end());
     return name;
 }
+
+std::string Soundex::replaceToDigits(std::string name)
+{
+    return "R000";
+}
