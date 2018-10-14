@@ -70,4 +70,18 @@ TEST_F(SoundexTests, GivenFourDifferentLettersReplaceToDigits)
     ASSERT_EQ(soundex.replaceToDigits("Abcr"),"A126");
 }
 
+TEST_F(SoundexTests, GivenFourDifferentLettersReplaceToDigitsDoubledNumber)
+{
+    ASSERT_EQ(soundex.removeDoubleDigit("Hbfw"),"H1w0");
+    ASSERT_EQ(soundex.removeDoubleDigit("Hcgw"),"H2w0");
+    ASSERT_EQ(soundex.removeDoubleDigit("Aqsw"),"A2w0");
+}
+
+TEST_F(SoundexTests, GivenFourDifferentLettersReplaceToDigitsTripledNumber)
+{
+    ASSERT_EQ(soundex.removeDoubleDigit("Hbfp"),"H100");
+    ASSERT_EQ(soundex.removeDoubleDigit("Hcgk"),"H200");
+    ASSERT_EQ(soundex.removeDoubleDigit("Aqsz"),"A200");
+}
+
 

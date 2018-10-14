@@ -12,5 +12,6 @@ class Soundex
 public:
     std::string removeAEIOUYHW(std::string name);
     std::string replaceToDigits(std::string name);
+    std::string removeDoubleDigit(std::string name);
 
 };

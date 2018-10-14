@@ -65,4 +65,18 @@ std::string Soundex::replaceToDigits(std::string name)
         name.push_back('0');
     return name;
 }
+std::string Soundex::removeDoubleDigit(std::string name)
+{
+    std::string name_ = replaceToDigits(name);
+    auto doubleDigit = std::adjacent_find(name_.begin(), name_.end());
+    while(doubleDigit != name_.end())
+    {
+        doubleDigit = std::adjacent_find(name_.begin(), name_.end());
+        if(doubleDigit != name_.end())
+            name_.erase(doubleDigit);
+    }
+    for(int i =name_.length(); i<4;i++)
+        name_.push_back('0');
+    return name_;
+}
 
