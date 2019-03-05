@@ -51,7 +51,7 @@ std::string Soundex::convert(std::string word)
     std::string result = removeUnnecesaryLetters(word);
     result = replaceLettersWithNumbers(result);
     result = removeDoubleDigits(result);
-    result = adjustSize(result);
+    adjustSize(result);
     return result;
 }
 
@@ -65,11 +65,11 @@ std::string Soundex::removeDoubleDigits(std::string word)
     return result;
 }
 
-std::string Soundex::adjustSize(std::string word)
+void Soundex::adjustSize(std::string & word)
 {
     while (word.size() < 4)
         word.push_back('0');
+
     while (word.size() > 4)
         word.pop_back();
-    return word;
 }
