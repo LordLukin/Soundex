@@ -7,4 +7,5 @@ public:
     std::string returnFirstLetter(std::string word);
     std::string removeUnnecesaryLetters(std::string word);
     std::string replaceLettersWithNumbers(std::string word);
+    std::string convert(std::string word);
 };

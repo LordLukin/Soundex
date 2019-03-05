@@ -44,3 +44,10 @@ std::string Soundex::replaceLettersWithNumbers(std:: string word)
 
     return result;
 }
+
+std::string Soundex::convert(std::string word)
+{
+    std::string result = removeUnnecesaryLetters(word);
+    result = replaceLettersWithNumbers(result);
+    return result;
+}
