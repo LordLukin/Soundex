@@ -58,9 +58,9 @@ std::string Soundex::convert(std::string word)
 std::string Soundex::removeDoubleDigits(std::string word)
 {
     std::string result = word;
-    for(auto it = result.begin(); it != result.end()-1; it++)
-        if(*it == *(it+1))
-            result.erase(it+1);
+    for(auto it = result.end()-1; it != result.begin(); it--)
+        if(*(it-1) == *(it))
+            result.erase(it);
 
     return result;
 }

@@ -37,4 +37,6 @@ TEST_F(SoundexTests, convertSoundex)
     ASSERT_EQ("P436", s.convert("Plotter"));
     ASSERT_EQ("R000", s.convert("R"));
     ASSERT_EQ("R163", s.convert("Robertrobertrobert"));
+    ASSERT_EQ("R150", s.convert("Rubin"));
+    ASSERT_EQ("H500", s.convert("Honeyman"));
 }
