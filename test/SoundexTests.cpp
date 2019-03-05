@@ -16,3 +16,8 @@ TEST_F(SoundexTests, findFirstLetterInLowerCaseWord)
 {
     ASSERT_EQ("R", s.returnFirstLetter("rupert"));
 }
+
+TEST_F(SoundexTests, removeAllUnnecesaryLetters)
+{
+    ASSERT_EQ("Hnmn", s.removeUnnecesaryLetters("Honeyman"));
+}
