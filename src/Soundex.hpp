@@ -9,4 +9,5 @@ public:
     std::string replaceLettersWithNumbers(std::string word);
     std::string convert(std::string word);
     std::string removeDoubleDigits(std::string word);
+    std::string adjustSize(std::string word);
 };
