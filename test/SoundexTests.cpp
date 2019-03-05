@@ -21,3 +21,8 @@ TEST_F(SoundexTests, removeAllUnnecesaryLetters)
 {
     ASSERT_EQ("Hnmn", s.removeUnnecesaryLetters("Honeyman"));
 }
+
+TEST_F(SoundexTests, replaceLettersWithNumbers)
+{
+    ASSERT_EQ("H555", s.replaceLettersWithNumbers("Hnmn"));
+}

@@ -19,3 +19,18 @@ std::string Soundex::removeUnnecesaryLetters(std::string word)
 
     return word;
 }
+
+std::string Soundex::replaceLettersWithNumbers(std:: string word)
+{
+    std::string result = word;
+
+    for(auto &letter : result)
+    {
+        if(letter == 'm' || letter == 'n')
+        {
+            letter = '5';
+        }
+    }
+
+    return result;
+}
