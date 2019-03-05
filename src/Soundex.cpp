@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include <locale>
 
 std::string Soundex::returnFirstLetter(std::string word)
 {
@@ -49,5 +50,16 @@ std::string Soundex::convert(std::string word)
 {
     std::string result = removeUnnecesaryLetters(word);
     result = replaceLettersWithNumbers(result);
+    result = removeDoubleDigits(result);
+    return result;
+}
+
+std::string Soundex::removeDoubleDigits(std::string word)
+{
+    std::string result = word;
+    for(auto it = result.begin(); it != result.end()-1; it++)
+        if(*it == *(it+1))
+            result.erase(it+1);
+
     return result;
 }
