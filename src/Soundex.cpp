@@ -22,6 +22,7 @@ std::string Soundex::removeUnnecesaryLetters(std::string word)
 
 std::string Soundex::replaceLettersWithNumbers(std:: string word)
 {
+    //std::vector<std::vector<char>> groups = {"bfpv", "cgjkqsxz", "dt", "l", "mn", "r"};
     std::string result = word;
 
     for(auto &letter : result)
@@ -29,6 +30,10 @@ std::string Soundex::replaceLettersWithNumbers(std:: string word)
         if(letter == 'm' || letter == 'n')
         {
             letter = '5';
+        }
+        if(letter == 'b' || letter == 'f' || letter == 'p' || letter == 'v')
+        {
+            letter = '1';
         }
     }
 
