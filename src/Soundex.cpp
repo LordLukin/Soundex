@@ -1,6 +1,7 @@
 #include "Soundex.hpp"
 #include <string>
 #include <algorithm>
+#include <map>
 
 std::string Soundex::returnFirstLetter(std::string word)
 {
@@ -25,16 +26,20 @@ std::string Soundex::replaceLettersWithNumbers(std:: string word)
     //std::vector<std::vector<char>> groups = {"bfpv", "cgjkqsxz", "dt", "l", "mn", "r"};
     std::string result = word;
 
+    std::map<char, char> m = {{'b', '1'}, {'f', '1'}, {'p', '1'}, {'v', '1'},
+                              {'c', '2'}, {'g', '2'}, {'j', '2'}, {'k', '2'},
+                              {'q', '2'}, {'s', '2'}, {'x', '2'}, {'z', '2'},
+                              {'d', '3'}, {'t', '3'},
+                              {'l', '4'},
+                              {'m', '5'}, {'n', '5'},
+                              {'r', '6'}
+                             };
+
     for(auto &letter : result)
     {
-        if(letter == 'm' || letter == 'n')
-        {
-            letter = '5';
-        }
-        if(letter == 'b' || letter == 'f' || letter == 'p' || letter == 'v')
-        {
-            letter = '1';
-        }
+        auto it = m.find(letter);
+        if(it != m.end())
+            letter = it->second;
     }
 
     return result;

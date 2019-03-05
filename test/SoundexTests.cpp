@@ -25,9 +25,6 @@ TEST_F(SoundexTests, removeAllUnnecesaryLetters)
 TEST_F(SoundexTests, replaceLettersWithNumbers)
 {
     ASSERT_EQ("H555", s.replaceLettersWithNumbers("Hnmn"));
-}
-
-TEST_F(SoundexTests, replaceDifferentLettersWithNumbers)
-{
     ASSERT_EQ("R111", s.replaceLettersWithNumbers("Rbfp"));
+    ASSERT_EQ("R163", s.replaceLettersWithNumbers("Rbrt"));
 }
