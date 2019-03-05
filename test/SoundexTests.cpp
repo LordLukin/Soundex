@@ -39,4 +39,8 @@ TEST_F(SoundexTests, convertSoundex)
     ASSERT_EQ("R163", s.convert("Robertrobertrobert"));
     ASSERT_EQ("R150", s.convert("Rubin"));
     ASSERT_EQ("H500", s.convert("Honeyman"));
+    ASSERT_EQ("A261", s.convert("Ashcraft"));
+    ASSERT_EQ("A261", s.convert("Ashcroft"));
+    ASSERT_EQ("T520", s.convert("Tymczak"));
+    ASSERT_EQ("P123", s.convert("Pfister"));
 }
