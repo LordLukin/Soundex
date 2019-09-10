@@ -26,8 +26,11 @@ TEST_F(SoundexTests, assertSoundexOnStringWithNotCharsThrowError)
     ASSERT_THROW(s.doSoundex(input), std::runtime_error);
 }
 
-TEST_F(SoundexTests, assertSoundexOnAReturnsA000)
+TEST_F(SoundexTests, assertSoundexReturnsFirstLetterAnd000)
 {
     std::string input{"A"};
     ASSERT_EQ(s.doSoundex(input), "A000");
+
+    input = "B";
+    ASSERT_EQ(s.doSoundex(input), "B000");
 }
