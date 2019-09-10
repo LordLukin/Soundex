@@ -19,3 +19,9 @@ TEST_F(SoundexTests, assertSoundexOnNotEmptyStringDoesNotThrowError)
     std::string input{"A"};
     ASSERT_NO_THROW(s.doSoundex(input));
 }
+
+TEST_F(SoundexTests, assertSoundexOnStringWithNotCharsThrowError)
+{
+    std::string input{"A1"};
+    ASSERT_THROW(s.doSoundex(input), std::runtime_error);
+}
