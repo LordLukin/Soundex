@@ -49,3 +49,8 @@ TEST_F(SoundexTests, assertSoundexOnReturns1OnBFPV)
     input = "BV";
     ASSERT_EQ(s.doSoundex(input), "B100");
 }
+TEST_F(SoundexTests, assertSoundexOnReturnsA222)
+{
+    std::string input{"ACGJ"};
+    ASSERT_EQ(s.doSoundex(input), "A222");
+}

@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include  <cctype>
 #include <algorithm>
+#include <vector>
 
 
 std::string Soundex::doSoundex(const std::string input)
@@ -15,10 +16,29 @@ std::string Soundex::doSoundex(const std::string input)
         throw std::runtime_error("Input contains no alpha value.");
     }
 
-    if(input[1] == 'B' || input[1] == 'F' || input[1] == 'P' || input[1] == 'V')
+    std::string result {input[0]};
+
+    std::vector<char> cypher = {'C', 'G', 'J', 'K', 'Q', 'S', 'X', 'Z'};
+    std::vector<char> cypher2 = {'B', 'F', 'P', 'V'};
+    for (auto e : input)
     {
-        return std::string{input[0]} + "100";
+        auto it = std::find(cypher.begin(), cypher.end(), e);
+        if(it != cypher.end() and e != input.front() ) {
+            result += "2";
+        }
+
+        it = std::find(cypher2.begin(), cypher2.end(), e);
+        if(it != cypher2.end() and e != input.front() ) {
+            result += "1";
+        }
+    }
+    int s = result.size();
+    for(int i = 0; i < 4-s; i++)
+    {
+        result+="0";
     }
 
-    return input + "000";
+    return result;
+ 
+    //return input + "000";
 }
