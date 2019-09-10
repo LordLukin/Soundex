@@ -1,11 +1,15 @@
 #include <gtest/gtest.h>
 #include "Soundex.hpp"
+#include <string>
+#include <stdexcept>
 
 struct SoundexTests : public ::testing::Test
 {
+    Soundex s;
 };
 
-TEST_F(SoundexTests, assertThatTrueIsTrue)
+TEST_F(SoundexTests, assertSoundexOnEmptyStringThrowError)
 {
-    ASSERT_TRUE(true);
+    std::string input{""};
+    ASSERT_THROW(s.doSoundex(input), std::runtime_error);
 }
