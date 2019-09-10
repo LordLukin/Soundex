@@ -15,9 +15,9 @@ std::string Soundex::doSoundex(const std::string input)
         throw std::runtime_error("Input contains no alpha value.");
     }
 
-    if(input[1] == 'B')
+    if(input[1] == 'B' || input[1] == 'F')
     {
-        return "A100";
+        return std::string{input[0]} + "100";
     }
 
     return input + "000";

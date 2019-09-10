@@ -40,3 +40,9 @@ TEST_F(SoundexTests, assertSoundexOnABReturnsA100)
     std::string input{"AB"};
     ASSERT_EQ(s.doSoundex(input), "A100");
 }
+
+TEST_F(SoundexTests, assertSoundexOnBFReturnsB100)
+{
+    std::string input{"BF"};
+    ASSERT_EQ(s.doSoundex(input), "B100");
+}
