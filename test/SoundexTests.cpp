@@ -34,3 +34,9 @@ TEST_F(SoundexTests, assertSoundexReturnsFirstLetterAnd000)
     input = "B";
     ASSERT_EQ(s.doSoundex(input), "B000");
 }
+
+TEST_F(SoundexTests, assertSoundexOnABReturnsA100)
+{
+    std::string input{"AB"};
+    ASSERT_EQ(s.doSoundex(input), "A100");
+}
