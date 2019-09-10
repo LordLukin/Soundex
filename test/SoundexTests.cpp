@@ -35,14 +35,17 @@ TEST_F(SoundexTests, assertSoundexReturnsFirstLetterAnd000)
     ASSERT_EQ(s.doSoundex(input), "B000");
 }
 
-TEST_F(SoundexTests, assertSoundexOnABReturnsA100)
+TEST_F(SoundexTests, assertSoundexOnReturns1OnBFPV)
 {
     std::string input{"AB"};
     ASSERT_EQ(s.doSoundex(input), "A100");
-}
 
-TEST_F(SoundexTests, assertSoundexOnBFReturnsB100)
-{
-    std::string input{"BF"};
+    input = "BF";
+    ASSERT_EQ(s.doSoundex(input), "B100");
+
+    input = "BP";
+    ASSERT_EQ(s.doSoundex(input), "B100");
+
+    input = "BV";
     ASSERT_EQ(s.doSoundex(input), "B100");
 }
